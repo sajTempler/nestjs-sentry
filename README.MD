@@ -15,10 +15,14 @@
 
 ## Table Of Contents
 
+- [Table Of Contents](#table-of-contents)
 - [NestJS 8 Support](#nestjs-8-support)
 - [About](#about)
 - [Installation](#installation)
+- [Github Sample Project using @ntegral/nestjs-sentry](#github-sample-project-using-ntegralnestjs-sentry)
 - [Getting Started](#getting-started)
+- [Interceptors](#interceptors)
+- [Flushing sentry](#flushing-sentry)
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
@@ -49,7 +53,7 @@ The following project was created as a sample starter project to get you going..
 The simplest way to use `@ntegral/nestjs-sentry` is to use `SentryModule.forRoot`
 
 ```typescript
-import { Module } from '@nestjs-common';
+import { Module } from '@nestjs/common';
 import { SentryModule } from '@ntegral/nestjs-sentry';
 import { LogLevel } from '@sentry/types';
 
@@ -57,10 +61,10 @@ import { LogLevel } from '@sentry/types';
   imports: [
     SentryModule.forRoot({
       dsn: 'sentry_io_dsn',
-      debug: true | false,
-      environment: 'dev' | 'production' | 'some_environment',
-      release: 'some_release', | null, // must create a release in sentry.io dashboard
-      logLevel: LogLevel.Debug //based on sentry.io loglevel //
+      debug: true, // true | false
+      environment: 'dev', // 'dev' | 'production' | 'some_environment'
+      release: 'some_release', // 'some_release' | null - must create a release in sentry.io dashboard
+      logLevel: LogLevel.Debug // based on sentry.io loglevel
     }),
   ],
 })
